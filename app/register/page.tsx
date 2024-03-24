@@ -66,9 +66,9 @@ const Register = () => {
 
   return (
     sessionStatus !== "authenticated" && (
-      <div className="justify-center mt-16">
-        <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
-          <h1 className="text-3xl font-semibold text-center text-purple-700">
+      <div className="justify-center mt-16 bg-white text-blue-600">
+        <div className="w-full p-6 m-auto rounded-md shadow-md lg:max-w-lg">
+          <h1 className="text-3xl font-semibold text-center text-blue-600">
             Register
           </h1>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -80,7 +80,7 @@ const Register = () => {
                 type="text"
                 placeholder="Name"
                 required
-                className="w-full input input-bordered input-primary bg-black"
+                className="w-full input input-bordered input-primary"
               />
             </div>
             <div>
@@ -91,7 +91,7 @@ const Register = () => {
                 type="text"
                 placeholder="Email Address"
                 required
-                className="w-full input input-bordered input-primary bg-black"
+                className="w-full input input-bordered input-primary "
               />
             </div>
             <div>
@@ -102,10 +102,10 @@ const Register = () => {
                 type="password"
                 placeholder="Enter Password"
                 required
-                className="w-full input input-bordered input-primary bg-black"
+                className="w-full input input-bordered input-primary"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               Register
             </button>
             <p className="text-red-600 text-[16px] mb-4">{error && error}</p>
