@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,15 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="dark:bg-[#1A1C29] bg-[#1A1C29] text-white">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          // defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
