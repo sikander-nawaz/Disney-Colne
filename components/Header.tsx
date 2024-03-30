@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ThemeToggler } from "./ThemeToggler";
+import profile from "@/public/profile.svg";
 import Link from "next/link";
 import GenreDropdown from "./GenreDropdown";
 import SearchInput from "./SearchInput";
@@ -20,7 +20,15 @@ function Header() {
       <div className="flex space-x-2">
         <GenreDropdown />
         <SearchInput />
-        <ThemeToggler />
+        <button>
+          <Image
+            src={profile}
+            alt="icon"
+            width={60}
+            height={60}
+            className="-mt-2 border outline-white rounded-full"
+          />
+        </button>
       </div>
     </header>
   );

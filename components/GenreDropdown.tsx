@@ -32,7 +32,7 @@ async function GenreDropdown() {
         Genre <ChevronDown className="ml-1" />
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent>
+      <DropdownMenuContent className="bg-[#1A1C29]">
         <DropdownMenuLabel>Select a Genre</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
