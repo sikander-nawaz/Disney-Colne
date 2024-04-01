@@ -10,12 +10,13 @@ import {
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import HomePage from "@/components/homePage/HomePage";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   const upcomingMovies = await getUpcomingMovies();
   const topRatedMovies = await getTopRatedMovies();
@@ -23,14 +24,20 @@ export default async function Home() {
 
   return (
     <main>
-      <Header />
-      <CarouselBannerWrapper />
+      {!session ? (
+        <HomePage />
+      ) : (
+        <>
+          <Header />
+          <CarouselBannerWrapper />
 
-      <div className="flex flex-col space-y-2 xl:-mt-48">
-        <MoviesCarousel movies={upcomingMovies} title="Upcoming" />
-        <MoviesCarousel movies={topRatedMovies} title="Top Rated" />
-        <MoviesCarousel movies={popularMovies} title="Popular" />
-      </div>
+          <div className="flex flex-col space-y-2 xl:-mt-48">
+            <MoviesCarousel movies={upcomingMovies} title="Upcoming" />
+            <MoviesCarousel movies={topRatedMovies} title="Top Rated" />
+            <MoviesCarousel movies={popularMovies} title="Popular" />
+          </div>
+        </>
+      )}
     </main>
   );
 }
