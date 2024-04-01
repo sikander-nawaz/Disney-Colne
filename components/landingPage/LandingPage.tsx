@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./styles.module.css";
 import ctaLogoOne from "./imges/cta-logo-one.svg";
 import ctaLogoTwo from "./imges/cta-logo-two.png";
 
-function HomePage() {
+function LandingPage() {
   return (
     <div className={styles.loginSection}>
       <div className={styles.content}>
@@ -12,7 +13,9 @@ function HomePage() {
           alt="ctaLogoOne"
           className={styles.ctaLogoOne}
         />
-        <div className={styles.loginButton}>GET ALL THERE</div>
+        <div className={styles.loginButton}>
+          <Link href={"/login"}>LOGIN TO GET ALL THERE</Link>
+        </div>
         <div className={styles.description}>
           Get Premier Access to Raya and the Last Dragon for an additional fee
           with a Disney+ subscription. As of 03/26/21, the price of Disney+ and
@@ -29,4 +32,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default LandingPage;

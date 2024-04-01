@@ -8,15 +8,11 @@ import {
   getUpcomingMovies,
 } from "@/lib/getMovies";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import HomePage from "@/components/homePage/HomePage";
+import LandingPage from "@/components/landingPage/LandingPage";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  // if (!session) {
-  //   redirect("/login");
-  // }
 
   const upcomingMovies = await getUpcomingMovies();
   const topRatedMovies = await getTopRatedMovies();
@@ -24,9 +20,7 @@ export default async function Home() {
 
   return (
     <main>
-      {!session ? (
-        <HomePage />
-      ) : (
+      {session ? (
         <>
           <Header />
           <CarouselBannerWrapper />
@@ -37,6 +31,8 @@ export default async function Home() {
             <MoviesCarousel movies={popularMovies} title="Popular" />
           </div>
         </>
+      ) : (
+        <LandingPage />
       )}
     </main>
   );
