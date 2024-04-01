@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import logo from "@/public/logo.svg";
 import Image from "next/image";
@@ -30,7 +34,8 @@ const Register = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
     setIsLoading(true);
     const email = data.email;
     const password = data.password;
@@ -140,30 +145,28 @@ const Register = () => {
 
         <div className="text-center">
           <button
-            onClick={() => handleSubmit()}
+            onClick={(event) => handleSubmit(event)}
             disabled={isLoading}
             className=" w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 mt-6 text-[16px]"
           >
             {!isLoading ? (
               "Register"
             ) : (
-              <>
-                <svg
-                  className="animate-spin h-5 w-5 mr-3 text-white"
-                  viewBox="0 0 24 24"
-                ></svg>
-              </>
+              <FontAwesomeIcon
+                icon={faSpinner}
+                className="animate-spin h-5 w-5 mr-3 text-white"
+              />
             )}
           </button>
         </div>
 
         <div className="mt-5 text-sm">
-          <span className="text-[#c9bebe]">New to Disney+? </span>
+          <span className="text-[#c9bebe]">Already to Disney+? </span>
           <Link
             href="/login"
             className=" text-center  text-[16px] hover:underline"
           >
-            Signup
+            Login
           </Link>
         </div>
       </div>
