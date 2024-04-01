@@ -1,9 +1,9 @@
 import Image from "next/image";
-import profile from "@/public/profile.svg";
 import Link from "next/link";
 import GenreDropdown from "./GenreDropdown";
 import SearchInput from "./SearchInput";
 import logo from "@/public/logo.svg";
+import LogOut from "./LogOut";
 
 function Header() {
   return (
@@ -21,15 +21,7 @@ function Header() {
       <div className="flex space-x-2">
         <GenreDropdown />
         <SearchInput />
-        <button>
-          <Image
-            src={profile}
-            alt="icon"
-            width={45}
-            height={45}
-            className="-mt-1 border outline-white rounded-full"
-          />
-        </button>
+        <LogOut />
       </div>
     </header>
   );

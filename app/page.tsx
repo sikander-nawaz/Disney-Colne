@@ -1,3 +1,4 @@
+import React from "react";
 import CarouselBannerWrapper from "@/components/CarouselBannerWrapper";
 import Header from "@/components/Header";
 import MoviesCarousel from "@/components/MoviesCarousael";
@@ -6,14 +7,22 @@ import {
   getTopRatedMovies,
   getUpcomingMovies,
 } from "@/lib/getMovies";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/login");
+  }
+
   const upcomingMovies = await getUpcomingMovies();
   const topRatedMovies = await getTopRatedMovies();
   const popularMovies = await getPopularMovies();
 
   return (
-    <main className="">
+    <main>
       <Header />
       <CarouselBannerWrapper />
 
