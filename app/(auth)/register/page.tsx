@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faEye,
   faEyeSlash,
-  faSpinner,
+  faCircleNotch,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import logo from "@/public/logo.svg";
@@ -153,7 +153,7 @@ const Register = () => {
               "Register"
             ) : (
               <FontAwesomeIcon
-                icon={faSpinner}
+                icon={faCircleNotch}
                 className="animate-spin h-5 w-5 mr-3 text-white"
               />
             )}
