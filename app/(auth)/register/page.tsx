@@ -166,7 +166,7 @@ const Register = () => {
             href="/login"
             className=" text-center  text-[16px] hover:underline"
           >
-            Login
+            SignIn
           </Link>
         </div>
       </div>

@@ -142,12 +142,12 @@ const Login = () => {
         </div>
 
         <div className="mt-5 text-sm">
-          <span className="text-[#c9bebe]">Already to Disney+? </span>
+          <span className="text-[#c9bebe]">New to Disney+? </span>
           <Link
             href="/register"
             className=" text-center  text-[16px] hover:underline"
           >
-            Login
+            SignUp
           </Link>
         </div>
       </div>
