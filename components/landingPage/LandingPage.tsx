@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import ctaLogoOne from "./imges/cta-logo-one.svg";
-import ctaLogoTwo from "./imges/cta-logo-two.png";
+// import ctaLogoTwo from "./imges/two.png";
 
 function LandingPage() {
   return (
@@ -21,12 +21,12 @@ function LandingPage() {
           with a Disney+ subscription. As of 03/26/21, the price of Disney+ and
           The Disney Bundle will increase by $1
         </div>
-        <Image
+        {/* <Image
           src={ctaLogoTwo}
           alt="ctaLogoTwo"
           width={100}
           className={styles.ctaLogoTwo}
-        />
+        /> */}
       </div>
     </div>
   );
