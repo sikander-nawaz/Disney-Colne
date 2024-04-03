@@ -1,6 +1,4 @@
-import getImagePath from "@/lib/getImagePath";
 import { SearchResults } from "@/typings";
-import Image from "next/image";
 import CarouselBanner from "./CarouselBanner";
 
 async function Banner() {
